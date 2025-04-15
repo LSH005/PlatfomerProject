@@ -1,6 +1,8 @@
-# PlatfomerProject
+# LSH's PlatfomerProject
 ## 2025 신구대학교 플랫포머 게임 프로젝트
 "게임프로젝트입문" 강의 중간고사 대체 과제
 
 Made By : 이시현 (2025137048)
-Yeah, That VERY handsome guy
+
+이시현이 누구냐고요?.. 왜 그 잘생긴 얘 있잖아요.
+(키 작고 시끄러운 놈)
