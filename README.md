@@ -1,5 +1,6 @@
 # PlatfomerProject
-2025 Shingu University Platformer Game Project
+## 2025 신구대학교 플랫포머 게임 프로젝트
+"게임프로젝트입문" 강의 중간고사 대체 과제
 
-By. 이시현 (2025137048)
-The handsome guy.
+Made By : 이시현 (2025137048)
+Yeah, That VERY handsome guy
