@@ -8,7 +8,7 @@ public class uiManager : MonoBehaviour
     // Start is called before the first frame update
     public void GameStartButtonAction()
     {
-        SceneManager.LoadScene("Lv_1");
+        SceneManager.LoadScene("CutScene_OP");
     }
     public void exit()
     {
