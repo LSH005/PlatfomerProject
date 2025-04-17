@@ -226,7 +226,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -376,6 +376,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1474398862}
   - {fileID: 1811246624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -384,6 +385,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1474398861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474398862}
+  - component: {fileID: 1474398863}
+  - component: {fileID: 1474398864}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1474398862
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474398861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1049139350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1474398863
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474398861}
+  m_CullTransparentMesh: 1
+--- !u!114 &1474398864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474398861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4f48325cacccc7743a8388aa875b434a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1773345265
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,10 +491,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1794187418}
   VoiceClip:
-  - {fileID: 8300000, guid: 7090df21fe05b964d960a267c8feb52e, type: 3}
-  - {fileID: 8300000, guid: 7090df21fe05b964d960a267c8feb52e, type: 3}
-  RealTime: 0
-  GameTick: 0
+  - {fileID: 8300000, guid: 2db28ab7c7a8a3b44807da6a77f2ac0d, type: 3}
+  - {fileID: 8300000, guid: 31f211ad5e7f5b54382b0a3c10bc7dce, type: 3}
+  - {fileID: 8300000, guid: 9633a5322cd2f2e4ea1c75a54b133308, type: 3}
+  - {fileID: 8300000, guid: fbaf07537f14cf044a64ec2293c8f928, type: 3}
+  - {fileID: 8300000, guid: b43b3caf8617abe429b5aefd2ece4c91, type: 3}
+  - {fileID: 8300000, guid: d844347593d5e844fadca0843407e168, type: 3}
+  - {fileID: 8300000, guid: abe4f98c4c1f3314aa0003b36dec7abe, type: 3}
+  - {fileID: 8300000, guid: 4cf5edce9f8b28c45aa568a4fdb1d497, type: 3}
+  - {fileID: 8300000, guid: d8feb2d217652bf45970a0025e81c8d6, type: 3}
+  - {fileID: 8300000, guid: 54fd2fbcc3c4ad841b665eaab16bcfc9, type: 3}
+  ImageSource: {fileID: 1474398864}
+  Image:
+  - {fileID: 21300000, guid: 4f48325cacccc7743a8388aa875b434a, type: 3}
   SubtitleText: {fileID: 1811246623}
 --- !u!4 &1773345267
 Transform:
@@ -620,7 +705,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  m_text: "////////////// \uC790\uB9C9\uC740 \uC774\uB807\uAC8C \uD45C\uC2DC\uB429\uB2C8\uB2E4.
+    //////////////"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 616674fddcdb28345b8888a16632e381, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 494227408edb9cf419ae1f1f8b6c2ee8, type: 2}
