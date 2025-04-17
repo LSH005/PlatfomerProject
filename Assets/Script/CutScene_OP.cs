@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 public class CutScene_OP : MonoBehaviour
 {
+    [Header("오디오 소스")]
     public AudioSource audioSource;
     public AudioClip[] VoiceClip;
 
-    public int GameTick = 0;
-    public float RealTime = 0f;
-
+    [Header("자막 텍스트")]
     public GameObject SubtitleText;
 
+
     private TextMeshProUGUI subtitle;
+
+    private int GameTick = 0;
+    private float RealTime = 0f;
 
     void Start()
     {
@@ -133,22 +136,22 @@ public class CutScene_OP : MonoBehaviour
                 break;
 
             case 20:
-                subtitle.text = "이제부터 서로 죽여라! 이겁니다~~!!";
+                subtitle.text = "이제부터";
                 audioSource.PlayOneShot(VoiceClip[19]);
                 break;
 
             case 21:
-                subtitle.text = "";
+                subtitle.text = "이제부터 서로 죽여라!";
                 audioSource.PlayOneShot(VoiceClip[20]);
                 break;
 
             case 22:
-                subtitle.text = "";
+                subtitle.text = "이제부터 서로 죽여라! 이겁니다~~!!";
                 audioSource.PlayOneShot(VoiceClip[21]);
                 break;
 
             case 23:
-                subtitle.text = "";
+                subtitle.text = "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ";
                 audioSource.PlayOneShot(VoiceClip[22]);
                 break;
 
