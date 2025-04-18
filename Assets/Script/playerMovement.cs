@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
 
+        /*
         if (isGiant)
         {
             if (moveInput < 0)
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
+        */
 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {

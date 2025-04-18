@@ -31,7 +31,7 @@ public class CutScene_OP : MonoBehaviour
     private TextMeshProUGUI subtitle;
     private TextMeshProUGUI infoText;
 
-    private int VoiceTick = 9999;
+    private int VoiceTick = 10;
     private int ImageNumber = 3;
 
     private float RealTime = 0f;
