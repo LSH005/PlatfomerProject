@@ -24,21 +24,27 @@ public class CutScene_OP : MonoBehaviour
     [Header("자막 텍스트")]
     public GameObject SubtitleText;
 
+    [Header("UI 텍스트")]
+    public GameObject InfoText;
+
 
     private TextMeshProUGUI subtitle;
+    private TextMeshProUGUI infoText;
 
-    private int VoiceTick = 10;
+    private int VoiceTick = 9999;
     private int ImageNumber = 3;
 
     private float RealTime = 0f;
     private float ThatVoiceImageResistance = 0f;
     private float RandomLimit = 0.25f;
+    private float SkipScene = 0f;
 
     private bool ThatVoice = false;
 
     void Start()
     {
         subtitle = SubtitleText.GetComponent<TextMeshProUGUI>();
+        infoText = InfoText.GetComponent<TextMeshProUGUI>();
         subtitle.text = "";
         Camera.main.backgroundColor = Color.black;
 
@@ -59,6 +65,21 @@ public class CutScene_OP : MonoBehaviour
         if (ThatVoice)
         {
             ThatVoiceImage();
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            SkipScene += Time.deltaTime;
+            infoText.text = "스킵 중!";
+            if (SkipScene >= 1.0f)
+            {
+                SceneManager.LoadScene("Lv_1");
+            }
+        }
+        else
+        {
+            SkipScene = 0f;
+            infoText.text = "스페이스 바를 길게 눌러서 스킵";
         }
     }
 
