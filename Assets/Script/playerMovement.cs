@@ -72,6 +72,14 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Enemy":
+                if (!isInvincible)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+                else
+                {
+                    Destroy(collision.gameObject);
+                }
                 break;
 
             case "Finish":
