@@ -1,14 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CutScene_OP : MonoBehaviour
 {
-    [Header("오디오 소스")]
-    public AudioSource audioSource;
+    [Header("보이스클립 오디오 소스")]
+    public AudioSource VoiceClipAudioSource;
     public AudioClip[] VoiceClip;
+
+    [Header("BGM 오디오 소스")]
+    public AudioSource BGMAudioSource;
+    public AudioClip BGM;
 
     [Header("이미지 소스")]
 
@@ -21,9 +27,14 @@ public class CutScene_OP : MonoBehaviour
 
     private TextMeshProUGUI subtitle;
 
-    private int VoiceTick = 0;
-    private bool MoveImage=false;
+    private int VoiceTick = 10;
+    private int ImageNumber = 3;
+
     private float RealTime = 0f;
+    private float ThatVoiceImageResistance = 0f;
+    private float RandomLimit = 0.25f;
+
+    private bool ThatVoice = false;
 
     void Start()
     {
@@ -31,25 +42,26 @@ public class CutScene_OP : MonoBehaviour
         subtitle.text = "";
         Camera.main.backgroundColor = Color.black;
 
-        VoiceTick = 10;
+        BGMAudioSource.clip = BGM;
+        BGMAudioSource.Play();
     }
 
     void Update()
     {
-        RealTime+= Time.deltaTime;
+        RealTime += Time.deltaTime;
         if (0.05f <= RealTime)
         {
             VoiceTick++;
             RealTime = 0f;
 
             CutSceneAudioAct();
-
-            if (MoveImage)
-            {
-                CutSceneImageAct();
-            }
+        }
+        if (ThatVoice)
+        {
+            ThatVoiceImage();
         }
     }
+
 
     public void CutSceneAudioAct()
     {
@@ -59,45 +71,54 @@ public class CutScene_OP : MonoBehaviour
                 Camera.main.backgroundColor = Color.white;
 
                 subtitle.text = "큐보리는 하얀 방에서 살고 있었습니다.";
-                audioSource.PlayOneShot(VoiceClip[0]);
+                ImageSource.sprite = Image[0];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[0]);
                 break;
 
             case 90:
                 subtitle.text = "큐보리의 방은 조용했습니다.";
-                audioSource.PlayOneShot(VoiceClip[1]);
+                ImageSource.sprite = Image[1];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[1]);
                 break;
 
-            case 150:
+            case 140:
                 subtitle.text = "아무 일도 없었습니다.";
-                audioSource.PlayOneShot(VoiceClip[2]);
+                ImageSource.sprite = Image[2];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
                 break;
 
             case 200:
                 subtitle.text = "어느 날.";
-                audioSource.PlayOneShot(VoiceClip[4]);
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[4]);
                 break;
 
             case 220:
-                subtitle.text = subtitle.text+" 큐보리는 목소리를 들었습니다.";
+                subtitle.text = subtitle.text + " 큐보리는 목소리를 들었습니다.";
+                ImageSource.sprite = Image[3];
                 break;
 
             case 265:
                 subtitle.text = "이 신비한 목소리는 하늘에서 들려왔습니다.";
-                audioSource.PlayOneShot(VoiceClip[5]);
+                ImageSource.sprite = Image[8];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[5]);
                 break;
 
             case 330:
                 StartCoroutine(VoiceClip6_Subtitle());
+                BGMAudioSource.Pause();
                 break;
 
             case 1130:
                 subtitle.text = "하늘에서 들려온 목소리는 큐보리에게 시련을 내렸습니다.";
-                audioSource.PlayOneShot(VoiceClip[7]);
+                ImageSource.sprite = Image[9];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[7]);
+                BGMAudioSource.UnPause();
                 break;
 
             case 1212:
                 subtitle.text = "중간고사 대체과제라는 험악한 환경을";
-                audioSource.PlayOneShot(VoiceClip[8]);
+                ImageSource.sprite = Image[10];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[8]);
                 break;
 
             case 1275:
@@ -106,7 +127,7 @@ public class CutScene_OP : MonoBehaviour
 
             case 1322:
                 subtitle.text = "그렇게 큐보리는 25년 만에";
-                audioSource.PlayOneShot(VoiceClip[9]);
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[9]);
                 break;
 
             case 1377:
@@ -115,20 +136,34 @@ public class CutScene_OP : MonoBehaviour
 
             case 1387:
                 subtitle.text += " 대퇴사두근을";
+                BGMAudioSource.Stop();
+                ImageSource.sprite = Image[11];
                 break;
 
             case 1404:
-                subtitle.text += " 움직여야했습니다. ㅋㅋㅋㅋ";
+                subtitle.text += " 움직여야했습니다.";
                 break;
 
-            case 1462:
-                subtitle.text = "...";
+            case 1414:
+                subtitle.text = "";
+                ImageSource.sprite = Image[12];
+                break;
+
+            case 1422:
+                subtitle.text = "";
+                ImageSource.sprite = Image[13];
+                Camera.main.backgroundColor = Color.black;
+                break;
+
+            case 1470:
+                SceneManager.LoadScene("Lv_1");
                 break;
         }
     }
     IEnumerator VoiceClip6_Subtitle()
     {
-        audioSource.PlayOneShot(VoiceClip[6]);
+        VoiceClipAudioSource.PlayOneShot(VoiceClip[6]);
+        ThatVoice = true;
         subtitle.text = "자 여러분들 반갑습니다!";
         yield return Sleep(1.75);
         subtitle.text = "여러분들의 잘★생★긴 교수님";
@@ -193,22 +228,37 @@ public class CutScene_OP : MonoBehaviour
         yield return Sleep(0.9);
         subtitle.text += " 서로";
         yield return Sleep(0.4);
-        subtitle.text += " 쮹@123이면 됩니다!!";
+        subtitle.text += " 죽★이★면 됩니다!!";
         yield return Sleep(1.75);
-        subtitle.text = "이야!@!!!!!!";
+        subtitle.text = "♥♥ 교수님 사랑합니다 ♥♥";
         for (int i = 0; i < 10; i++)
         {
             yield return Sleep(0.02);
-            subtitle.text = "ㅋㅋㅋㅋㅋㅋㅋㅋ";
+            subtitle.text = "이야!!!!!!!!!!!!!!!!!!";
             yield return Sleep(0.02);
             subtitle.text = "";
         }
-
+        ThatVoice = false;
+        ImageSource.sprite = Image[8];
     }
 
-    public void CutSceneImageAct()
+    private void ThatVoiceImage()
     {
-        
+        ThatVoiceImageResistance += Time.deltaTime;
+
+        if (ThatVoiceImageResistance >= RandomLimit)
+        {
+            ThatVoiceImageResistance = 0;
+            RandomLimit = UnityEngine.Random.Range(0.1f, 0.5f);
+
+            ImageNumber++;
+            if (ImageNumber == 8)
+            {
+                ImageNumber = 4;
+            }
+
+            ImageSource.sprite = Image[ImageNumber];
+        }
     }
 
     IEnumerator Sleep(double SleepSeconds)
