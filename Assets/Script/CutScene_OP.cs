@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CutScene_OP : MonoBehaviour
+public class CutScene_ED : MonoBehaviour
 {
     [Header("보이스클립 오디오 소스")]
     public AudioSource VoiceClipAudioSource;

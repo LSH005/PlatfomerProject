@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float moveSpeed = 100f;
+    private float moveSpeed = 2f;
 
     private Rigidbody2D rb;
     private bool isMoveingRight = true;

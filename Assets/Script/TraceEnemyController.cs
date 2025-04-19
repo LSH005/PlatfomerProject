@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyTraceController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float traceDistance = 7f;
-    public float MoveTime = 9999;
+    private float moveSpeed = 1.5f;
+    private float traceDistance = 1.5f;
+    private float MoveTime = 9999;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -29,7 +29,7 @@ public class EnemyTraceController : MonoBehaviour
                 MoveTime = 0;
                 xDistance = Mathf.Sign(xDistance);
                 rb.velocity = new Vector2(xDistance * moveSpeed, rb.velocity.y + moveSpeed);
-                rb.AddForce(new Vector2(xDistance * moveSpeed*6, moveSpeed*2), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(xDistance * moveSpeed, moveSpeed/12), ForceMode2D.Impulse);
             }
         }
     }

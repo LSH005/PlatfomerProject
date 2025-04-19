@@ -1526,7 +1526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547216849713015276, guid: af4042f55799b884e81b84e7bc7362db, type: 3}
       propertyPath: NextLevel
-      value: Lv_3
+      value: Lv_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37914,7 +37914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8f1c9a425bd784a809e42eae448b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
 --- !u!4 &1478227286
 Transform:
   m_ObjectHideFlags: 0
@@ -38086,7 +38085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8f1c9a425bd784a809e42eae448b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
 --- !u!4 &1520930675
 Transform:
   m_ObjectHideFlags: 0

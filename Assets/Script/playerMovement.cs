@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
                 EffectTimerOn = true;
                 Destroy(collision.gameObject);
                 Renderer.sprite = Shape[2];
+                jumpForce = 7.5f;
                 EffectName = "점프력 증가";
                 effectText.color = Color.green;
                 break;
