@@ -9074,6 +9074,11 @@ Transform:
   - {fileID: 467894167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1841359017 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4345991881031672573, guid: e2db3462c8f980c4bb26bb0d6ecf8c9e, type: 3}
+  m_PrefabInstance: {fileID: 7223270658048902621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2055579095
 GameObject:
   m_ObjectHideFlags: 0
@@ -9355,6 +9360,10 @@ PrefabInstance:
       propertyPath: EffectText
       value: 
       objectReference: {fileID: 183797372}
+    - target: {fileID: 8894845734205429901, guid: e2db3462c8f980c4bb26bb0d6ecf8c9e, type: 3}
+      propertyPath: ClipAudioSource
+      value: 
+      objectReference: {fileID: 1841359017}
     - target: {fileID: 8969987409155561793, guid: e2db3462c8f980c4bb26bb0d6ecf8c9e, type: 3}
       propertyPath: m_Name
       value: CuBoRi

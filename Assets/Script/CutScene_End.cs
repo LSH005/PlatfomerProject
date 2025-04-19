@@ -57,9 +57,7 @@ public class CutScene_End : MonoBehaviour
         switch (VoiceTick)
         {
             case 30:
-                Camera.main.backgroundColor = Color.white;
-
-                subtitle.text = "큐보리는 자기가 왜 격어야 하는지 모를 중간평가를 마쳤습니다.";
+                subtitle.text = "큐보리는 자신이 왜 격어야 했는지 모를 중간평가를 마쳤습니다.";
                 ImageSource.sprite = Image[0];
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[0]);
                 break;
@@ -71,6 +69,24 @@ public class CutScene_End : MonoBehaviour
 
             case 120:
                 subtitle.text = "우유를 얻었습니다.";
+                ImageSource.sprite = Image[1];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
+                break;
+
+            case 150:
+                subtitle.text = "";
+                ImageSource.sprite = Image[1];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
+                break;
+
+            case 180:
+                subtitle.text = "...";
+                ImageSource.sprite = Image[1];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
+                break;
+
+            case 181:
+                subtitle.text = "큐보리는 입이 없습니다.";
                 ImageSource.sprite = Image[1];
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
                 break;

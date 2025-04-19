@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     [Header("이펙트 쿨다운 텍스트")]
     public GameObject EffectText;
 
+    [Header("사망 사운드 오디오 소스")]
+    public AudioSource ClipAudioSource;
+    public AudioClip[] SFXClip;
+
     private TextMeshProUGUI effectText;
 
     private float moveSpeed = 5f;
@@ -67,14 +71,14 @@ public class PlayerController : MonoBehaviour
             case "Respawn":
                 if (!isInvincible)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    GameOver();
                 }
                 break;
 
             case "Enemy":
                 if (!isInvincible)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    GameOver();
                 }
                 else
                 {
@@ -83,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Finish":
-                collision.GetComponent<LevelObject>().MoveToNextLevel();
+                GameOver();
                 break;
 
             case "Item_Invincible":
@@ -138,6 +142,18 @@ public class PlayerController : MonoBehaviour
         Realtime = 0;
         effectText.text = " ";
         Renderer.sprite = Shape[0];
+    }
+
+    public void GameOver()
+    {
+        ClipAudioSource.PlayOneShot(SFXClip[UnityEngine.Random.Range(0,20)]);
+
+        gameObject.SetActive(false);
+        Invoke("RestartGame", 3.0f);
+    }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
