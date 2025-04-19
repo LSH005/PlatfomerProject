@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Renderer.sprite = Shape[0];
         effectText = EffectText.GetComponent<TextMeshProUGUI>();
-        effectText.text = "";
+        effectText.text = " ";
     }
 
     // Update is called once per frame
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
                 isInvincible = true;
                 Renderer.sprite = Shape[1];
                 EffectName = "불멸";
+                effectText.color = Color.red;
                 break;
 
             case "Item_Jump":
@@ -101,6 +102,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(collision.gameObject);
                 Renderer.sprite = Shape[2];
                 EffectName = "점프력 증가";
+                effectText.color = Color.green;
                 break;
 
             case "Item_Speed":
@@ -108,7 +110,9 @@ public class PlayerController : MonoBehaviour
                 EffectTimerOn = true;
                 Destroy(collision.gameObject);
                 Renderer.sprite = Shape[3];
+                moveSpeed = 7.5f;
                 EffectName = "속도 증가";
+                effectText.color = Color.blue;
                 break;
         }
     }
@@ -131,7 +135,7 @@ public class PlayerController : MonoBehaviour
         jumpForce = 5f;
         EffectTimer = 5f;
         Realtime = 0;
-        effectText.text = "";
+        effectText.text = " ";
         Renderer.sprite = Shape[0];
     }
 

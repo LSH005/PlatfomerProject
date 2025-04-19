@@ -7,6 +7,8 @@ TagManager:
   - Item_Invincible
   - Boundary
   - Enemy
+  - Item_Jump
+  - Item_Speed
   layers:
   - Default
   - TransparentFX
