@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Finish":
-                GameOver();
+                collision.GetComponent<LevelObject>().MoveToNextLevel();
                 break;
 
             case "Item_Invincible":
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
-        ClipAudioSource.PlayOneShot(SFXClip[UnityEngine.Random.Range(0,20)]);
+        ClipAudioSource.PlayOneShot(SFXClip[UnityEngine.Random.Range(0,19)]);
 
         gameObject.SetActive(false);
         Invoke("RestartGame", 3.0f);
