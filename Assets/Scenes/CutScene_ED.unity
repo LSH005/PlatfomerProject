@@ -634,7 +634,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VoiceClipAudioSource: {fileID: 1794187418}
   VoiceClip:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f7517de5be3b82640829957433d1cc80, type: 3}
+  - {fileID: 8300000, guid: f80c45a454caee54f860a5fff2a7c879, type: 3}
+  - {fileID: 8300000, guid: 1d880d8071d066f4b990e384d5380a30, type: 3}
+  - {fileID: 8300000, guid: 276e79c163bae5a499edf34d20d2b969, type: 3}
+  - {fileID: 8300000, guid: f6dcde47e6625e540be7449ff850fb87, type: 3}
   BGMAudioSource: {fileID: 1147684448}
   BGM: {fileID: 8300000, guid: 4367a75f27ad1cb4ba59f46baf223efe, type: 3}
   ImageSource: {fileID: 1474398864}

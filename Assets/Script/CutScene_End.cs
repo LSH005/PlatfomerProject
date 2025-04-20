@@ -25,8 +25,7 @@ public class CutScene_End : MonoBehaviour
 
     private TextMeshProUGUI subtitle;
 
-    private int VoiceTick = 0;
-
+    private int VoiceTick = 10;
     private float RealTime = 0f;
 
 
@@ -57,39 +56,67 @@ public class CutScene_End : MonoBehaviour
         switch (VoiceTick)
         {
             case 30:
-                subtitle.text = "큐보리는 자신이 왜 격어야 했는지 모를 중간평가를 마쳤습니다.";
+                subtitle.text = "큐보리는 가장 잘 생긴 교수님인";
                 ImageSource.sprite = Image[0];
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[0]);
                 break;
 
-            case 90:
-                subtitle.text = "큐보리는 그 대가로";
+            case 75:
+                subtitle.text = "♥♥송재광♥♥";
+                break;
+
+            case 85:
+                subtitle.text = "아니;;";
+                ImageSource.sprite = Image[1];
+                break;
+
+            case 105:
+                subtitle.text = "유★재★원 교수님의 중간평가를 마쳤습니다.";
+                ImageSource.sprite = Image[0];
+                break;
+
+            case 160:
+                subtitle.text = "큐보리는 그 대가로,";
                 ImageSource.sprite = Image[1];
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[1]);
                 break;
 
-            case 120:
+            case 190:
                 subtitle.text = "우유를 얻었습니다.";
                 ImageSource.sprite = Image[2];
+                break;
+
+            case 250:
+                subtitle.text = "...";
+                BGMAudioSource.Stop();
+                break;
+
+            case 300:
+                subtitle.text = "입이 없는데";
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
                 break;
 
-            case 150:
+            case 323:
+                subtitle.text += " 우예 마시노????";
+                break;
+
+            case 340:
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[3]);
                 subtitle.text = "";
                 ImageSource.sprite = Image[3];
-                VoiceClipAudioSource.PlayOneShot(VoiceClip[3]);
                 break;
 
-            case 180:
-                subtitle.text = "...";
-                ImageSource.sprite = Image[4];
+            case 350:
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[4]);
+                ImageSource.sprite = Image[4];
                 break;
 
-            case 210:
-                subtitle.text = "큐보리는 입이 없습니다.";
-                ImageSource.sprite = Image[5];
-                VoiceClipAudioSource.PlayOneShot(VoiceClip[5]);
+            case 375:
+                Application.Quit();
+
+                #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                #endif
                 break;
         }
     }
