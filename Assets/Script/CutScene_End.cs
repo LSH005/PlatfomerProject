@@ -63,6 +63,7 @@ public class CutScene_End : MonoBehaviour
 
             case 75:
                 subtitle.text = "♥♥송재광♥♥";
+                BGMAudioSource.Pause();
                 break;
 
             case 85:
@@ -73,6 +74,7 @@ public class CutScene_End : MonoBehaviour
             case 105:
                 subtitle.text = "유★재★원 교수님의 중간평가를 마쳤습니다.";
                 ImageSource.sprite = Image[0];
+                BGMAudioSource.UnPause();
                 break;
 
             case 160:
