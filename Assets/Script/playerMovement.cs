@@ -22,6 +22,14 @@ public class PlayerController : MonoBehaviour
     public AudioSource ClipAudioSource;
     public AudioClip[] SFXClip;
 
+    [Header("스테이지 BGM 오디오 소스")]
+    public AudioSource BGMAudioSource;
+    public AudioClip BGMClip;
+
+    [Header("이펙트 전용 오디오 소스")]
+    public AudioSource EffectAudioSource;
+    public AudioClip[] EffectClip;
+
     private TextMeshProUGUI effectText;
 
     private float moveSpeed = 5f;
@@ -44,6 +52,9 @@ public class PlayerController : MonoBehaviour
         Renderer.sprite = Shape[0];
         effectText = EffectText.GetComponent<TextMeshProUGUI>();
         effectText.text = " ";
+
+        BGMAudioSource.clip = BGMClip;
+        BGMAudioSource.Play();
     }
 
     // Update is called once per frame
@@ -98,6 +109,9 @@ public class PlayerController : MonoBehaviour
                 Renderer.sprite = Shape[1];
                 EffectName = "불멸";
                 effectText.color = Color.red;
+                BGMAudioSource.Pause();
+                EffectAudioSource.clip = EffectClip[0];
+                EffectAudioSource.Play();
                 break;
 
             case "Item_Jump":
@@ -108,6 +122,9 @@ public class PlayerController : MonoBehaviour
                 jumpForce = 7.5f;
                 EffectName = "점프력 증가";
                 effectText.color = Color.green;
+                BGMAudioSource.Pause();
+                EffectAudioSource.clip = EffectClip[1];
+                EffectAudioSource.Play();
                 break;
 
             case "Item_Speed":
@@ -118,6 +135,9 @@ public class PlayerController : MonoBehaviour
                 moveSpeed = 7.5f;
                 EffectName = "속도 증가";
                 effectText.color = Color.blue;
+                BGMAudioSource.Pause();
+                EffectAudioSource.clip = EffectClip[2];
+                EffectAudioSource.Play();
                 break;
         }
     }
@@ -142,14 +162,18 @@ public class PlayerController : MonoBehaviour
         Realtime = 0;
         effectText.text = " ";
         Renderer.sprite = Shape[0];
+        BGMAudioSource.UnPause();
+        EffectAudioSource.Stop();
     }
 
     public void GameOver()
     {
         ClipAudioSource.PlayOneShot(SFXClip[UnityEngine.Random.Range(0,19)]);
 
+        BGMAudioSource.Stop();
+        EffectAudioSource.Stop();
         gameObject.SetActive(false);
-        Invoke("RestartGame", 3.0f);
+        Invoke("RestartGame", 2.5f);
     }
     public void RestartGame()
     {
