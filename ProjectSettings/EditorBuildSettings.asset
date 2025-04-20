@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lv_5.unity
     guid: b5a8176714dc2f047b0367fc99384608
+  - enabled: 1
+    path: Assets/Scenes/CutScene_ED.unity
+    guid: 39e382e82de7ee249b55454940fbae12
   m_configObjects: {}

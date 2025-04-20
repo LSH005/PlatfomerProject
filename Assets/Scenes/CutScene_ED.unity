@@ -639,8 +639,11 @@ MonoBehaviour:
   BGM: {fileID: 8300000, guid: 4367a75f27ad1cb4ba59f46baf223efe, type: 3}
   ImageSource: {fileID: 1474398864}
   Image:
-  - {fileID: 21300000, guid: a7763faa836bf214e81fc9da4f5af807, type: 3}
-  - {fileID: 21300000, guid: a7763faa836bf214e81fc9da4f5af807, type: 3}
+  - {fileID: 21300000, guid: 22d83427703aa07419603e26e5ba3098, type: 3}
+  - {fileID: 21300000, guid: 579398a9548f02c44b4c62ef5576ffbd, type: 3}
+  - {fileID: 21300000, guid: 4b5089bf5f957aa45bc9919f7b83a0f1, type: 3}
+  - {fileID: 21300000, guid: ec6474407fa456e4697982cf59f594f2, type: 3}
+  - {fileID: 21300000, guid: e45102f902b22564da316240a33ca4a5, type: 3}
   SubtitleText: {fileID: 1811246623}
 --- !u!1 &1794187417
 GameObject:

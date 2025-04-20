@@ -64,31 +64,32 @@ public class CutScene_End : MonoBehaviour
 
             case 90:
                 subtitle.text = "큐보리는 그 대가로";
+                ImageSource.sprite = Image[1];
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[1]);
                 break;
 
             case 120:
                 subtitle.text = "우유를 얻었습니다.";
-                ImageSource.sprite = Image[1];
+                ImageSource.sprite = Image[2];
                 VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
                 break;
 
             case 150:
                 subtitle.text = "";
-                ImageSource.sprite = Image[1];
-                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
+                ImageSource.sprite = Image[3];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[3]);
                 break;
 
             case 180:
                 subtitle.text = "...";
-                ImageSource.sprite = Image[1];
-                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
+                ImageSource.sprite = Image[4];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[4]);
                 break;
 
-            case 181:
+            case 210:
                 subtitle.text = "큐보리는 입이 없습니다.";
-                ImageSource.sprite = Image[1];
-                VoiceClipAudioSource.PlayOneShot(VoiceClip[2]);
+                ImageSource.sprite = Image[5];
+                VoiceClipAudioSource.PlayOneShot(VoiceClip[5]);
                 break;
         }
     }
