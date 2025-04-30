@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed = 5f;
     private float jumpForce = 5f;
     private float EffectTimer = 0;
-    private float Realtime = 0f;
+    private float TimeScore = 0f;
 
     private string EffectName = "";
 
@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
         Renderer.sprite = Shape[0];
         effectText = EffectText.GetComponent<TextMeshProUGUI>();
@@ -60,6 +61,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TimeScore += Time.deltaTime;
+
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
@@ -98,6 +101,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Finish":
+                HighScore.TrySet(SceneManager.GetActiveScene().buildIndex, (int)(TimeScore*100));
                 collision.GetComponent<LevelObject>().MoveToNextLevel();
                 break;
 
@@ -159,7 +163,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = 5f;
         jumpForce = 5f;
         EffectTimer = 5f;
-        Realtime = 0;
         effectText.text = " ";
         Renderer.sprite = Shape[0];
         BGMAudioSource.UnPause();
