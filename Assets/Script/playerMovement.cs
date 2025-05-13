@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [Header("이펙트 쿨다운 텍스트")]
     public GameObject EffectText;
 
+    [Header("스피드 런 타이머")]
+    public GameObject TimerText;
+
     [Header("사망 사운드 오디오 소스")]
     public AudioSource ClipAudioSource;
     public AudioClip[] SFXClip;
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] EffectClip;
 
     private TextMeshProUGUI effectText;
+    private TextMeshProUGUI timerText;
 
     private float moveSpeed = 5f;
     private float jumpForce = 5f;
@@ -54,6 +58,9 @@ public class PlayerController : MonoBehaviour
         effectText = EffectText.GetComponent<TextMeshProUGUI>();
         effectText.text = " ";
 
+        timerText = TimerText.GetComponent<TextMeshProUGUI>();
+        timerText.text = "0.01";
+
         BGMAudioSource.clip = BGMClip;
         BGMAudioSource.Play();
     }
@@ -62,6 +69,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         TimeScore += Time.deltaTime;
+        timerText.text = TimeScore.ToString("F2");
 
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
@@ -76,6 +84,11 @@ public class PlayerController : MonoBehaviour
         if (EffectTimerOn)
         {
             EffectOn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameOver();
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)

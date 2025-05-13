@@ -171,10 +171,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8894845734205429901, guid: e2db3462c8f980c4bb26bb0d6ecf8c9e, type: 3}
-      propertyPath: BGMClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 123ee8fa325a0bc4d9feb95abbe6a0c2, type: 3}
-    - target: {fileID: 8894845734205429901, guid: e2db3462c8f980c4bb26bb0d6ecf8c9e, type: 3}
       propertyPath: BGMAudioSource
       value: 
       objectReference: {fileID: 2092325213}
