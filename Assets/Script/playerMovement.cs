@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
@@ -114,7 +115,8 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case "Finish":
-                HighScore.TrySet(SceneManager.GetActiveScene().buildIndex, (int)(TimeScore*100));
+                //HighScore.TrySet(SceneManager.GetActiveScene().buildIndex, (int)(TimeScore*100));
+                StageResultSaver.SaveStage(SceneManager.GetActiveScene().buildIndex, (int)(TimeScore*100));
                 collision.GetComponent<LevelObject>().MoveToNextLevel();
                 break;
 
